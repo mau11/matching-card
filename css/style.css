@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.row {
+  display: flex;
+}
+
+.card {
+  height: 120px;
+  max-width: 120px;
+  border: solid 1px black;
+  cursor: pointer;
+  background-color: lightpink;
+  flex: 1 1 120px;
+}
+
+.card:hover {
+  opacity: 0.8;
+}
+
+.card.active {
+  background-image: -webkit-linear-gradient(white, blue);
+  cursor: default;
+}
+
+.active:hover {
+  opacity: unset;
+}
