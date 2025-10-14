@@ -25,12 +25,25 @@ body {
   max-width: 90vw;
   margin: auto;
   padding: 3em 0;
+  background-color: var(--white);
+}
+
+main {
+  background-color: white;
+  box-shadow: 0 0 16px var(--primary);
+  border-radius: 2em;
+  padding: 2em;
+}
+
+p {
+  margin-top: 1em;
 }
 
 section {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   justify-content: center;
+  /* https://css-tricks.com/almanac/properties/g/grid/grid-template-columns/ */
+  grid-template-columns: repeat(6, minmax(100px, 150px));
   gap: 1em;
   margin-top: 2em;
 }
@@ -40,16 +53,21 @@ section {
 }
 
 .card {
-  height: 160px;
-  max-width: 120px;
+  height: 140px;
   cursor: pointer;
   background-color: var(--primary);
   flex: 1 1 120px;
   border-radius: 5px;
   box-shadow: 0 0 6px var(--accent);
   background-image: var(--3d-effect);
+  /* card flip animation: https://3dtransforms.desandro.com/card-flip */
   transform-style: preserve-3d;
   transition: transform 0.6s;
+  background-image: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0.05),
+    rgba(0, 0, 0, 0.15)
+  );
 }
 
 .card:hover {
@@ -64,7 +82,7 @@ section {
   background-repeat: no-repeat;
   transition: transform 0.2s;
   cursor: default;
-
+  /* card flip animation: https://3dtransforms.desandro.com/card-flip */
   transform: rotateY(180deg);
 }
 
@@ -72,7 +90,23 @@ section {
   opacity: unset;
 }
 
-@media screen and (max-width: 460px) {
-  body {
+@media screen and (max-width: 850px) {
+  section {
+    /* https://css-tricks.com/almanac/properties/g/grid/grid-template-columns/ */
+    grid-template-columns: repeat(4, minmax(100px, 150px));
+  }
+}
+
+@media screen and (max-width: 560px) {
+  main {
+    padding: 1em;
+  }
+
+  .card {
+    height: 120px;
+  }
+
+  section {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }

@@ -67,9 +67,7 @@ function handleCardClick(card, index) {
 
         // check if game is complete
         if (totalMatches === TOTAL_CARD_COUNT / 2) {
-          const h2 = document.createElement("h2");
-          h2.innerText = "YOU WIN!";
-          document.querySelector("section").appendChild(h2);
+          document.getElementById("results").innerText = "YOU WIN!";
         }
       } else {
         firstCard.classList.remove("active");
